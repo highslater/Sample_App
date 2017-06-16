@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+=begin
 
 User.create!(
   name:                     "highslater",
@@ -25,6 +26,7 @@ User.create!(
   activated:                true
 )
 
+=end
 
 20.times do |n|
 
