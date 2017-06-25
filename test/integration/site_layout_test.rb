@@ -78,7 +78,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     # assert_select dropdown menu "Account"
     assert_select "a[href=?]", logout_path, count: 1
     assert_select "a[href=?]", edit_user_path, count: 1
-    assert_select "a[href=?]", user_path, count: 1
+    assert_select "a[href=?]", user_path, count: 61
 
 
   end

@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
   before_action :set_user,   only: [:show, :destroy]
   before_action :set_users,   only: [:index]
+  before_action :set_microposts,   only: [:show]
   before_action :admin_user,     only: :destroy
 
   def index
@@ -59,13 +60,11 @@ class UsersController < ApplicationController
     @users = User.where(activated: true).paginate(page: params[:page])
   end
 
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "Please log in."
-      redirect_to login_url
-    end
+  def set_microposts
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
+
+
 
   def correct_user
     @user = User.find(params[:id])
