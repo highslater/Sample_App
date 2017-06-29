@@ -1,3 +1,5 @@
+=begin
+
 if Rails.env.production?
   CarrierWave.configure do |config|
     config.fog_credentials = {
@@ -9,6 +11,8 @@ if Rails.env.production?
     config.fog_directory     =  ENV['S3_BUCKET']
   end
 end
+
+=end
 
 
 =begin
