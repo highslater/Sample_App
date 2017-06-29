@@ -57,11 +57,11 @@ class UsersController < ApplicationController
 
   def set_users
     # @users = User.paginate(page: params[:page])
-    @users = User.where(activated: true).paginate(page: params[:page])
+    @users = User.where(activated: true).paginate(:page=> params[:page], :per_page => 5)
   end
 
   def set_microposts
-    @microposts = @user.microposts.paginate(page: params[:page])
+    @microposts = @user.microposts.paginate(:page=> params[:page], :per_page => 5)
   end
 
 
