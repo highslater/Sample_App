@@ -64,7 +64,21 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_difference 'Micropost.count', 1 do
       post microposts_path, params: {micropost: { content: content, picture: picture }}
     end
+
+
+    ##### Working on
+
+    micropost = @user.microposts.paginate(page: 1).first
+    assert_equal micropost.content, "This micropost really ties the room together"
+    assert_not_nil micropost.picture
+
+
     # assert assigns(:micropost).picture?
+
+
+    ##### Working on
+
+
     follow_redirect!
     assert_match content, response.body
     # Delete a post.
